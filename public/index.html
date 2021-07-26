@@ -19,6 +19,24 @@
             padding: 5px;
             border: 1px solid #ccc;
         }
+        div#special-inject > h1.injected {
+            display: none;
+        }
+        div#special-inject > p > a.injected {
+            display: none;
+        }
+        div#special-inject.injected > h1.injected {
+            display: block;
+        }
+        div#special-inject.injected > p > a.injected {
+            display: initial;
+        }
+        div#special-inject.injected > h1:not(.injected) {
+            display: none;
+        }
+        div#special-inject.injected > p > a:not(.injected) {
+            display: none;
+        }
     </style>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
@@ -35,9 +53,12 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
-                    <div class="column is-6 is-offset-3">
+                    <div id="special-inject" class="column is-6 is-offset-3">
                         <h1 class="title is-2">
                             Welcome to 🔥Fire Notes📝!
+                        </h1>
+                        <h1 class="title is-2 injected">
+                            Welcome to 🔥Fire Notes📝, John!
                         </h1>
                         <h2 class="subtitle is-4">
                             Log in to view your notes or create a new one.
@@ -47,6 +68,7 @@
                             <a class="button is-medium is-info is-outlined" href="javascript:void(0)">
                                 Sign In
                             </a>
+                            <a href="writeNote.html" class="button is-medium is-info is-outlined injected">Continue</a>
                         </p>
                     </div>
                 </div>

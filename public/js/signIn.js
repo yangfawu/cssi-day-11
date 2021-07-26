@@ -5,12 +5,6 @@ const authNode = firebase.auth;
 const AUTH = authNode();
 const provider = new authNode.GoogleAuthProvider();
 
-AUTH.onAuthStateChanged(user => {
-    if (!user)
-        return;
-    window.location.href = "./writeNote.html";
-});
-
 // # DOM
 const get = selector => document.querySelector(selector);
 
@@ -27,4 +21,13 @@ signInBtn.addEventListener('click', () => {
             console.log("Ran into issue while logging in:", message);
             busy = false;
         });
+});
+
+const box = get("#special-inject");
+const boxWelcome = get("#special-inject > h1.injected");
+AUTH.onAuthStateChanged(user => {
+    box.classList[user ? "add" : "remove"]("injected");
+
+    if (user)
+        boxWelcome.innerText = `Welcome to 🔥Fire Notes📝, ${user.displayName}!`;
 });
