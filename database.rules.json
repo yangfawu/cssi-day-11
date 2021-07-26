@@ -1,6 +1,14 @@
 {
-  "rules": {
-    ".read": "now < 1629864000000",  // 2021-8-25
-    ".write": "now < 1629864000000",  // 2021-8-25
-  }
+    "rules": {
+        ".read": "false",
+        ".write": "false",
+        "notes": {
+            "$uid": {
+                ".read": "auth != null && auth.uid == $uid",
+                "$note_id": {
+                    ".write": "auth != null && auth.uid == $uid"
+                }
+            }
+        }
+    }
 }
