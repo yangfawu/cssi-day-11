@@ -19,6 +19,7 @@ const EDITOR = {
     // #
     title: get("#noteTitle"),
     note: get("#noteText"),
+    labels: get("#noteLabels"),
     button: get("div.control > button"),
     // #
     lock() {
@@ -32,7 +33,13 @@ const EDITOR = {
     val() {
         return {
             title: `${this.title.value}`.trim(),
-            note: `${this.note.value}`.trim()
+            note: `${this.note.value}`.trim(),
+            labels: [...new Set(`${this.labels.value}`
+                        .trim()
+                        .split(',')
+                        .map(label => label.trim())
+                        .filter(label => !!label)
+                    )]
         }
     },
     valid() {
@@ -42,6 +49,7 @@ const EDITOR = {
     empty() {
         this.title.value = '';
         this.note.value = '';
+        this.labels.value = '';
     }
 }
 EDITOR.button.addEventListener('click', () => {

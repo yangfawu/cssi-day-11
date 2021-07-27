@@ -1,3 +1,55 @@
 div#app {
     min-height: 30vh;
 }
+
+input::placeholder {
+  color: antiquewhite;
+}
+.navbar {
+  background: var(--card-bg);
+}
+
+/* Card start*/
+.card {
+  overflow: hidden;
+  /* color: var(--bg); */
+}
+.card.special-color-0 {
+    background-color: #ACDDDE;
+}
+.card.special-color-1 {
+    background-color: #CAF1DE;
+}
+.card.special-color-2 {
+    background-color: #E1F8DC;
+}
+.card.special-color-3 {
+    background-color: #FEF8DD;
+}
+.card.special-color-4 {
+    background-color: #FFE7C7;
+}
+.card.special-color-5 {
+    background-color: #F7D8BA;
+}
+
+.card.large {
+  border-radius: 5px;
+}
+
+.title.no-padding {
+  margin-bottom: 0 !important;
+}
+
+.footer {
+  background: white;
+}
+
+.footer a:hover {
+  color: crimson;
+}
+
+.fa {
+  color: ghostwhite;
+  margin: 10px
+}

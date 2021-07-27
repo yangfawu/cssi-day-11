@@ -63,12 +63,13 @@ const MODAL = {
 }
 MODAL.cancelButton.addEventListener('click', () => MODAL.clear());
 
+const COLOR_MODES = 6;
 const createCard = key => {
     // build node
     const node = document.createElement("div");
     node.classList.add("column", "is-one-quarter");
     node.innerHTML = `
-        <div class="card">
+        <div class="card special-color-${Math.floor(Math.random() * COLOR_MODES)}">
             <header class="card-header">
                 <p class="card-header-title"></p>
             </header>
